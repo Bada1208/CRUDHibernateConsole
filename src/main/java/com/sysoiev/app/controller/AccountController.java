@@ -1,0 +1,34 @@
+package com.sysoiev.app.controller;
+
+
+import com.sysoiev.app.model.Account;
+import com.sysoiev.app.repository.AccountRepository;
+import com.sysoiev.app.repository.impl.HibernateAccountRepository;
+
+import java.util.List;
+
+public class AccountController {
+    private AccountRepository accountRepository = new HibernateAccountRepository();
+
+
+    public List<Account> printAll() {
+        return accountRepository.getAll();
+    }
+
+    public void saveAccount(Account newAccount) {
+        accountRepository.save(newAccount);
+    }
+
+    public void deleteAccount(Long index) {
+        accountRepository.deleteById(index);
+    }
+
+    public void updateAccount(Long id, Account updateAccount) {
+        accountRepository.update(id, updateAccount);
+
+    }
+
+    public Account getValueByIndex(Long index) {
+        return accountRepository.getById(index);
+    }
+}
