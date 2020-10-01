@@ -1,5 +1,8 @@
 package com.sysoiev.app.model;
 
+import org.hibernate.annotations.Entity;
+
+@Entity
 public class Account {
     private Long id;
     private AccountStatus accountStatus;
