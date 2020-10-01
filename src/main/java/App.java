@@ -1,3 +1,4 @@
+import com.sysoiev.app.view.CommonView;
 import org.hibernate.HibernateException;
 import org.hibernate.Metamodel;
 import org.hibernate.query.Query;
@@ -43,5 +44,6 @@ public class App {
         } finally {
             session.close();
         }
+        CommonView.getInstance().run();
     }
 }
