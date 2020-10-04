@@ -1,5 +1,5 @@
 use hibernate_crud;
-create table accounts
+/*create table accounts
 (
     id             bigint primary key,
     account_status enum ('ACTIVE', 'BANNED', 'DELETED') DEFAULT 'ACTIVE'
@@ -26,3 +26,4 @@ create table if not exists customer_specialties
     foreign key (specialty_id) references specialties (id)
 
 );
+*/
