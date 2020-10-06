@@ -1,4 +1,12 @@
 use hibernate_crud;
+create database hibernate_crud;
+create table if not exists specialties
+(
+    id        bigint primary key AUTO_INCREMENT,
+    specialty varchar(100)
+);
+drop table specialties;
+drop database hibernate_crud;
 /*create table accounts
 (
     id             bigint primary key,

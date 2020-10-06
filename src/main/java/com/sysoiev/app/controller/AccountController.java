@@ -23,8 +23,8 @@ public class AccountController {
         accountRepository.deleteById(index);
     }
 
-    public void updateAccount(Long id, Account updateAccount) {
-        accountRepository.update(id, updateAccount);
+    public void updateAccount(Account updateAccount) {
+        accountRepository.update(updateAccount);
 
     }
 

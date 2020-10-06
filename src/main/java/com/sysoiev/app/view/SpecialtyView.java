@@ -1,7 +1,6 @@
 package com.sysoiev.app.view;
 
 
-
 import com.sysoiev.app.controller.SpecialtyController;
 import com.sysoiev.app.model.Specialty;
 
@@ -37,11 +36,9 @@ public class SpecialtyView {
     }
 
     public void saveSpecialty() {
-        System.out.println("Enter id : ");
-        Long id = Long.parseLong(scanner.next());
         System.out.println("Enter specialty : ");
         String specialty = scanner.next();
-        Specialty newSpecialty = new Specialty(id, specialty);
+        Specialty newSpecialty = new Specialty(specialty);
         specialtyController.saveSpecialty(newSpecialty);
     }
 
@@ -51,7 +48,7 @@ public class SpecialtyView {
         System.out.println("Enter new specialty : ");
         String specialty = scanner.next();
         Specialty newSpecialty = new Specialty(id, specialty);
-        specialtyController.updateSpecialty(id,newSpecialty);
+        specialtyController.updateSpecialty(newSpecialty);
     }
 
     public void run() {

@@ -10,7 +10,7 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class CustomerView {
-    private Scanner scanner = new Scanner(System.in);
+  /*  private Scanner scanner = new Scanner(System.in);
     private CustomerController customerController = new CustomerController();
 
 
@@ -127,5 +127,5 @@ public class CustomerView {
                     System.out.println("Enter number from 1 to 6, please");
             }
         }
-    }
+    }*/
 }

@@ -22,8 +22,8 @@ public class CustomerController {
         customerRepository.deleteById(index);
     }
 
-    public void updateCustomer(Long id, Customer updateCustomer) {
-        customerRepository.update(id, updateCustomer);
+    public void updateCustomer( Customer updateCustomer) {
+        customerRepository.update(updateCustomer);
     }
 
     public Customer getValueByIndex(Long index) {

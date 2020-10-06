@@ -3,16 +3,16 @@ package com.sysoiev.app.repository.impl;
 import com.sysoiev.app.model.Customer;
 import com.sysoiev.app.repository.CustomerRepository;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class HibernateCustomerRepository implements CustomerRepository {
     @Override
-    public Customer save(Customer data) {
-        return null;
+    public void save(Customer data) {
+
     }
 
     @Override
-    public ArrayList<Customer> getAll() {
+    public List<Customer> getAll() {
         return null;
     }
 
@@ -22,7 +22,7 @@ public class HibernateCustomerRepository implements CustomerRepository {
     }
 
     @Override
-    public void update(Long aLong, Customer data) {
+    public void update( Customer data) {
 
     }
 

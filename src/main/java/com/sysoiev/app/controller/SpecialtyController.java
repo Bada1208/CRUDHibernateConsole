@@ -22,8 +22,8 @@ public class SpecialtyController {
         specialtyRepository.deleteById(index);
     }
 
-    public void updateSpecialty(Long id, Specialty updateSpecialty) {
-        specialtyRepository.update(id, updateSpecialty);
+    public void updateSpecialty(Specialty updateSpecialty) {
+        specialtyRepository.update(updateSpecialty);
 
     }
 

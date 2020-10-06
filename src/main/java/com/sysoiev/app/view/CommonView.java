@@ -11,8 +11,8 @@ public class CommonView {
 
     private CommonView() {
         specialtyView = new SpecialtyView();
-        accountView = new AccountView();
-        customerView = new CustomerView();
+       /* accountView = new AccountView();
+        customerView = new CustomerView();*/
     }
 
     public static CommonView getInstance() {
@@ -39,10 +39,10 @@ public class CommonView {
                     runSpecialty();
                     break;
                 case 2:
-                    runAccount();
+                    //runAccount();
                     break;
                 case 3:
-                    runCustomer();
+                   // runCustomer();
                     break;
                 case 4:
                     go = false;
@@ -58,13 +58,13 @@ public class CommonView {
         specialtyView.run();
     }
 
-    public void runAccount() {
+/*    public void runAccount() {
         accountView.run();
     }
 
     public void runCustomer() {
         customerView.run();
-    }
+    }*/
 
 }
 

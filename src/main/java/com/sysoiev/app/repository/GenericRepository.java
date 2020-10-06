@@ -1,15 +1,15 @@
 package com.sysoiev.app.repository;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface GenericRepository<T, ID> {
-    T save(T data);
+    void save(T data);
 
-    ArrayList<T> getAll();
+    List<T> getAll();
 
     T getById(ID id);
 
-    void update(ID id, T data);
+    void update(T data);
 
     void deleteById(ID id);
 }

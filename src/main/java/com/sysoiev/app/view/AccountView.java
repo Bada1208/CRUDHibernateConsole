@@ -8,7 +8,7 @@ import com.sysoiev.app.model.AccountStatus;
 import java.util.Scanner;
 
 public class AccountView {
-    private Scanner scanner = new Scanner(System.in);
+   /* private Scanner scanner = new Scanner(System.in);
     private AccountController accountController = new AccountController();
 
 
@@ -101,5 +101,5 @@ public class AccountView {
                     System.out.println("Enter number from 1 to 6, please");
             }
         }
-    }
+    }*/
 }

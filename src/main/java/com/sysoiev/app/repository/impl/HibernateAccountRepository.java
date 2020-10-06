@@ -3,16 +3,16 @@ package com.sysoiev.app.repository.impl;
 import com.sysoiev.app.model.Account;
 import com.sysoiev.app.repository.AccountRepository;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class HibernateAccountRepository implements AccountRepository {
     @Override
-    public Account save(Account data) {
-        return null;
+    public void save(Account data) {
+
     }
 
     @Override
-    public ArrayList<Account> getAll() {
+    public List<Account> getAll() {
         return null;
     }
 
@@ -22,7 +22,7 @@ public class HibernateAccountRepository implements AccountRepository {
     }
 
     @Override
-    public void update(Long aLong, Account data) {
+    public void update( Account data) {
 
     }
 
