@@ -12,8 +12,8 @@ import java.util.Objects;
 @Table(name = "specialties")
 public class Specialty {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO,generator="native")
-    @GenericGenerator(name = "native",strategy = "native")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
     @Column(name = "id")
     private Long id;
     @Column(name = "specialty")
@@ -25,6 +25,10 @@ public class Specialty {
     public Specialty(Long id, String specialty) {
         this.id = id;
         this.specialty = specialty;
+    }
+
+    public Specialty(Long id) {
+        this.id = id;
     }
 
     public Specialty(String specialty) {

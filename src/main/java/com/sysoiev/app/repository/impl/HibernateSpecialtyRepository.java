@@ -51,7 +51,7 @@ public class HibernateSpecialtyRepository implements SpecialtyRepository {
     public void deleteById(Long id) {
         sessionUtil.openTransactionSession();
         Session session = sessionUtil.getSession();
-        Specialty specialty = getById(id);
+        Specialty specialty = new Specialty(id);
         session.remove(specialty);
         sessionUtil.closeTransactionSession();
     }
