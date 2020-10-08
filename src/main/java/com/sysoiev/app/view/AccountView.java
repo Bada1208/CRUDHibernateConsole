@@ -8,7 +8,7 @@ import com.sysoiev.app.model.AccountStatus;
 import java.util.Scanner;
 
 public class AccountView {
-   /* private Scanner scanner = new Scanner(System.in);
+    private Scanner scanner = new Scanner(System.in);
     private AccountController accountController = new AccountController();
 
 
@@ -38,9 +38,7 @@ public class AccountView {
     }
 
     public void saveAccount() {
-        System.out.println("Enter id : ");
-        Long id = Long.parseLong(scanner.next());
-        Account newAccount = new Account(id, AccountStatus.ACTIVE);
+        Account newAccount = new Account(AccountStatus.ACTIVE);
         accountController.saveAccount(newAccount);
     }
 
@@ -61,8 +59,8 @@ public class AccountView {
                 accountStatusVar = AccountStatus.BANNED;
                 break;
         }
-        Account newAccount = new Account(id, accountStatusVar);
-        accountController.updateAccount(id,newAccount);
+        Account newAccount = new Account(id,accountStatusVar);
+        accountController.updateAccount(newAccount);
     }
 
     public void run() {
@@ -101,5 +99,5 @@ public class AccountView {
                     System.out.println("Enter number from 1 to 6, please");
             }
         }
-    }*/
+    }
 }

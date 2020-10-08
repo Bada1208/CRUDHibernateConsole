@@ -7,8 +7,6 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Getter
-@Setter
 @Table(name = "specialties")
 public class Specialty {
     @Id
@@ -16,9 +14,9 @@ public class Specialty {
     @GenericGenerator(name = "native", strategy = "native")
     @Column(name = "id")
     private Long id;
+
     @Column(name = "specialty")
     private String specialty;
-
     public Specialty() {
     }
 
@@ -32,6 +30,22 @@ public class Specialty {
     }
 
     public Specialty(String specialty) {
+        this.specialty = specialty;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getSpecialty() {
+        return specialty;
+    }
+
+    public void setSpecialty(String specialty) {
         this.specialty = specialty;
     }
 

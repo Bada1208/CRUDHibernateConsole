@@ -10,7 +10,7 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class CustomerView {
-  /*  private Scanner scanner = new Scanner(System.in);
+    private Scanner scanner = new Scanner(System.in);
     private CustomerController customerController = new CustomerController();
 
 
@@ -41,8 +41,6 @@ public class CustomerView {
 
 
     public void saveCustomer() {
-        System.out.println("Enter id : ");
-        Long id = Long.parseLong(scanner.next());
         System.out.println("Enter name :");
         String name = scanner.next();
         System.out.println("Enter surname :");
@@ -74,21 +72,21 @@ public class CustomerView {
                     break;
             }
         }
-        Customer newCustomer = new Customer(id, name, surname,account, specialtySet );
+        Customer newCustomer = new Customer(name, surname, account, specialtySet);
         customerController.saveCustomer(newCustomer);
     }
 
 
     public void updateCustomer() {
-        Customer newCustomer ;
+        Customer newCustomer;
         System.out.println("Enter id in order to find element :");
         Long id = Long.parseLong(scanner.next());
         System.out.println("Enter name :");
         String name = scanner.next();
         System.out.println("Enter surname :");
         String surname = scanner.next();
-        newCustomer = new Customer(id, name, surname);
-        customerController.updateCustomer(id,newCustomer);
+        newCustomer = null;//new Customer(id, name, surname);
+        customerController.updateCustomer(newCustomer);
     }
 
     public void run() {
@@ -127,5 +125,5 @@ public class CustomerView {
                     System.out.println("Enter number from 1 to 6, please");
             }
         }
-    }*/
+    }
 }

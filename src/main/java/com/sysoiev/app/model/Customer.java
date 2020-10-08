@@ -23,6 +23,9 @@ public class Customer {
     private String name;
     @Column(name="surname")
     private String surname;
+
+    public Customer(String name, String surname, Account account, Set<Specialty> specialtySet) {
+    }
    /* @OneToMany(mappedBy = "customers", fetch = FetchType.LAZY)
     private Set<Specialty> customerSpecialties = new HashSet<>();*/
     /*@Column(name="account_id")
