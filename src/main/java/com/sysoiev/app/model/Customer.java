@@ -1,5 +1,7 @@
 package com.sysoiev.app.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -8,18 +10,21 @@ import java.util.Set;
 @Table(name = "customers")
 public class Customer {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
     @Column(name = "id")
     private Long id;
     @Column(name = "name")
     private String name;
     @Column(name = "surname")
     private String surname;
+    @Column(name = "specialty_id")
+    @OneToMany(fetch = FetchType.LAZY)
+    private Set<Specialty> customerSpecialties = new HashSet<>();
     @Column(name = "account_id")
     @OneToOne(cascade = {CascadeType.PERSIST})
     private Account customerAccount;
-    @OneToMany(mappedBy = "customer_specialties", fetch = FetchType.LAZY)
-    private Set<Specialty> customerSpecialties = new HashSet<>();
+
 
     public Customer() {
     }

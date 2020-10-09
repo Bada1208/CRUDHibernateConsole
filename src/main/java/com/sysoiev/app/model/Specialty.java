@@ -1,6 +1,5 @@
 package com.sysoiev.app.model;
 
-import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;

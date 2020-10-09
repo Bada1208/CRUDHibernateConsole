@@ -13,6 +13,17 @@ create table accounts
     account_status enum ('ACTIVE', 'BANNED', 'DELETED') DEFAULT 'ACTIVE'
 );
 drop table accounts;
+create table if not exists customers
+(
+    id         bigint primary key auto_increment,
+    name       varchar(155),
+    surname    varchar(155),
+    specialty_id bigint,
+    account_id bigint,
+    foreign key (specialty_id)references specialties(id),
+    foreign key (account_id) references accounts (id)
+);
+drop table customers;
 /*create table accounts
 (
     id             bigint primary key,
@@ -25,7 +36,7 @@ create table if not exists specialties
 );
 create table if not exists customers
 (
-    id         bigint primary key,
+    id         bigint primary key auto,
     name       varchar(155),
     surname    varchar(155),
     account_id bigint,
