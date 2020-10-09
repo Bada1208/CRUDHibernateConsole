@@ -1,5 +1,8 @@
 package com.sysoiev.app.view;
 
+import com.sysoiev.app.util.SessionFactoryUtil;
+import org.hibernate.SessionFactory;
+
 import java.util.Scanner;
 
 public class CommonView {

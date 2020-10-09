@@ -4,6 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -31,6 +32,13 @@ public class Customer {
 
     public Customer(Long id) {
         this.id = id;
+    }
+
+    public Customer(String name, String surname, Account account, Set<Specialty> specialties) {
+        this.name = name;
+        this.surname = surname;
+        this.customerAccount = account;
+        this.customerSpecialties = specialties;
     }
 
     public Customer(Long id, String name, String surname, Account account, Set<Specialty> specialties) {
@@ -104,6 +112,28 @@ public class Customer {
             specialtyString += "{" + s.getId() + "}";
         }
         return specialtyString;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Customer customer = (Customer) o;
+
+        if (!Objects.equals(id, customer.id)) return false;
+        if (!Objects.equals(name, customer.name)) return false;
+        if (!Objects.equals(surname, customer.surname)) return false;
+        return Objects.equals(customerAccount, customer.customerAccount);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (surname != null ? surname.hashCode() : 0);
+        result = 31 * result + (customerAccount != null ? customerAccount.hashCode() : 0);
+        return result;
     }
 
     @Override
