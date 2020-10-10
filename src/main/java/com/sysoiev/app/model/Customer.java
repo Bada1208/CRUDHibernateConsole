@@ -20,10 +20,10 @@ public class Customer {
     @Column(name = "surname")
     private String surname;
     @Column(name = "specialty_id")
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.EAGER)
     private Set<Specialty> customerSpecialties = new HashSet<>();
-    @Column(name = "account_id")
-    @OneToOne(cascade = {CascadeType.PERSIST})
+    @JoinColumn(name = "account_id")
+    @OneToOne(cascade = {CascadeType.ALL})
     private Account customerAccount;
 
 

@@ -49,8 +49,8 @@ public class CustomerView {
         Long idAccount = Long.parseLong(scanner.next());
         Account account = new Account(idAccount);
         Set<Specialty> specialtySet = new HashSet<>();
-        System.out.println("Enter id of customer in order to link specialty :");
-        Long idCustomer = Long.parseLong(scanner.next());
+        /*System.out.println("Enter id of customer in order to link specialty :");
+        Long idCustomer = Long.parseLong(scanner.next());*/
         System.out.println("Enter id of specialty :");
         Long idSpecialty = Long.parseLong(scanner.next());
         specialtySet.add(new Specialty(idSpecialty));
@@ -78,14 +78,13 @@ public class CustomerView {
 
 
     public void updateCustomer() {
-        Customer newCustomer;
         System.out.println("Enter id in order to find element :");
         Long id = Long.parseLong(scanner.next());
         System.out.println("Enter name :");
         String name = scanner.next();
         System.out.println("Enter surname :");
         String surname = scanner.next();
-        newCustomer = null;//new Customer(id, name, surname);
+        Customer newCustomer = new Customer(id, name, surname);
         customerController.updateCustomer(newCustomer);
     }
 
