@@ -11,7 +11,7 @@ public class SessionFactoryUtil {
         try {
             sessionFactory = new Configuration().configure().buildSessionFactory();
         } catch (Throwable th) {
-            System.err.println("Initial SessionFactory creation failed" + th);
+            System.err.println("Initial SessionFactory creation failed " + th);
             throw new ExceptionInInitializerError(th);
         }
     }

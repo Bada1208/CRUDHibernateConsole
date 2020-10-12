@@ -1,0 +1,223 @@
+databaseChangeLog:
+- changeSet:
+    id: 1602494259162-1
+    author: Admin (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+            name: id
+            type: BIGINT
+        - column:
+            defaultValue: ACTIVE
+            name: account_status
+            type: ENUM('ACTIVE', 'BANNED', 'DELETED')
+        tableName: accounts
+- changeSet:
+    id: 1602494259162-2
+    author: Admin (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: customer_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: specialty_id
+            type: BIGINT
+        tableName: customer_specialties
+- changeSet:
+    id: 1602494259162-3
+    author: Admin (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+            name: id
+            type: BIGINT
+        - column:
+            name: name
+            type: VARCHAR(155)
+        - column:
+            name: surname
+            type: VARCHAR(155)
+        - column:
+            name: specialty_id
+            type: BIGINT
+        - column:
+            name: account_id
+            type: BIGINT
+        tableName: customers
+- changeSet:
+    id: 1602494259162-4
+    author: Admin (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              primaryKey: true
+            name: Customer_id
+            type: BIGINT
+        - column:
+            constraints:
+              primaryKey: true
+              unique: true
+            name: customerSpecialties_id
+            type: BIGINT
+        tableName: customers_specialties
+- changeSet:
+    id: 1602494259162-5
+    author: Admin (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+            name: id
+            type: BIGINT
+        - column:
+            name: specialty
+            type: VARCHAR(100)
+        tableName: specialties
+- changeSet:
+    id: 1602494259162-6
+    author: Admin (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: customer_id, specialty_id
+        constraintName: customer_id
+        tableName: customer_specialties
+- changeSet:
+    id: 1602494259162-7
+    author: Admin (generated)
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: account_id
+        indexName: FKor0fx9fttvasr4grtaqnltyrl
+        tableName: customers
+- changeSet:
+    id: 1602494259162-8
+    author: Admin (generated)
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: specialty_id
+        indexName: specialty_id
+        tableName: customer_specialties
+- changeSet:
+    id: 1602494259162-9
+    author: Admin (generated)
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: specialty_id
+        indexName: specialty_id
+        tableName: customers
+- changeSet:
+    id: 1602494259162-10
+    author: Admin (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: customerSpecialties_id
+        baseTableName: customers_specialties
+        constraintName: FKd8dhs1x0coeba7sfbowdg91oo
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: id
+        referencedTableName: specialties
+        validate: true
+- changeSet:
+    id: 1602494259162-11
+    author: Admin (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: account_id
+        baseTableName: customers
+        constraintName: FKor0fx9fttvasr4grtaqnltyrl
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: id
+        referencedTableName: accounts
+        validate: true
+- changeSet:
+    id: 1602494259162-12
+    author: Admin (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: Customer_id
+        baseTableName: customers_specialties
+        constraintName: FKpft1v7aqvdiu9bq4t4v1086ex
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: id
+        referencedTableName: customers
+        validate: true
+- changeSet:
+    id: 1602494259162-13
+    author: Admin (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: customer_id
+        baseTableName: customer_specialties
+        constraintName: customer_specialties_ibfk_1
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: CASCADE
+        onUpdate: CASCADE
+        referencedColumnNames: id
+        referencedTableName: customers
+        validate: true
+- changeSet:
+    id: 1602494259162-14
+    author: Admin (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: specialty_id
+        baseTableName: customer_specialties
+        constraintName: customer_specialties_ibfk_2
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: id
+        referencedTableName: specialties
+        validate: true
+- changeSet:
+    id: 1602494259162-15
+    author: Admin (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: specialty_id
+        baseTableName: customers
+        constraintName: customers_ibfk_1
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: id
+        referencedTableName: specialties
+        validate: true
+

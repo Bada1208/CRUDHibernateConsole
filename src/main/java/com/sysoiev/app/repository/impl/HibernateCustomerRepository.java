@@ -10,6 +10,7 @@ import java.util.List;
 
 public class HibernateCustomerRepository implements CustomerRepository {
     private final SessionUtil sessionUtil = new SessionUtil();
+
     @Override
     public void save(Customer data) {
         sessionUtil.openTransactionSession();
@@ -39,7 +40,7 @@ public class HibernateCustomerRepository implements CustomerRepository {
     }
 
     @Override
-    public void update( Customer data) {
+    public void update(Customer data) {
         sessionUtil.openTransactionSession();
         Session session = sessionUtil.getSession();
         session.update(data);
@@ -50,7 +51,7 @@ public class HibernateCustomerRepository implements CustomerRepository {
     public void deleteById(Long id) {
         sessionUtil.openTransactionSession();
         Session session = sessionUtil.getSession();
-        Customer customer=new Customer();
+        Customer customer = new Customer();
         customer.setId(id);
         session.remove(customer);
         sessionUtil.closeTransactionSession();

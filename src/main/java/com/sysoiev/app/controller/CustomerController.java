@@ -22,7 +22,7 @@ public class CustomerController {
         customerRepository.deleteById(index);
     }
 
-    public void updateCustomer( Customer updateCustomer) {
+    public void updateCustomer(Customer updateCustomer) {
         customerRepository.update(updateCustomer);
     }
 

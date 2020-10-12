@@ -20,7 +20,7 @@ public class Customer {
     @Column(name = "surname")
     private String surname;
     @Column(name = "specialty_id")
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(cascade = {CascadeType.ALL},fetch = FetchType.EAGER)
     private Set<Specialty> customerSpecialties = new HashSet<>();
     @JoinColumn(name = "account_id")
     @OneToOne(cascade = {CascadeType.ALL})
@@ -109,7 +109,7 @@ public class Customer {
     public String getSpecialties() {
         String specialtyString = "";
         for (Specialty s : customerSpecialties) {
-            specialtyString += "{" + s.getId() + "}";
+            specialtyString += "{" + s.getId() + ", " + s.getSpecialty() + "}";
         }
         return specialtyString;
     }

@@ -1,46 +1,8 @@
 use hibernate_crud;
-create database hibernate_crud;
 create table if not exists specialties
 (
     id        bigint primary key AUTO_INCREMENT,
     specialty varchar(100)
-);
-drop table specialties;
-drop database hibernate_crud;
-create table accounts
-(
-    id             bigint primary key AUTO_INCREMENT,
-    account_status enum ('ACTIVE', 'BANNED', 'DELETED') DEFAULT 'ACTIVE'
-);
-drop table accounts;
-create table if not exists customers
-(
-    id         bigint primary key auto_increment,
-    name       varchar(155),
-    surname    varchar(155),
-    specialty_id bigint,
-    account_id bigint,
-    foreign key (specialty_id)references specialties(id),
-    foreign key (account_id) references accounts (id)
-);
-drop table customers;
-/*create table accounts
-(
-    id             bigint primary key,
-    account_status enum ('ACTIVE', 'BANNED', 'DELETED') DEFAULT 'ACTIVE'
-);
-create table if not exists specialties
-(
-    id        bigint primary key,
-    specialty varchar(100)
-);
-create table if not exists customers
-(
-    id         bigint primary key auto,
-    name       varchar(155),
-    surname    varchar(155),
-    account_id bigint,
-    foreign key (account_id) references accounts (id)
 );
 create table if not exists customer_specialties
 (
@@ -51,4 +13,18 @@ create table if not exists customer_specialties
     foreign key (specialty_id) references specialties (id)
 
 );
-*/
+create table accounts
+(
+    id             bigint primary key AUTO_INCREMENT,
+    account_status enum ('ACTIVE', 'BANNED', 'DELETED') DEFAULT 'ACTIVE'
+);
+create table if not exists customers
+(
+    id         bigint primary key auto_increment,
+    name       varchar(155),
+    surname    varchar(155),
+    specialty_id bigint,
+    account_id bigint,
+    foreign key (specialty_id)references specialties(id),
+    foreign key (account_id) references accounts (id)
+);

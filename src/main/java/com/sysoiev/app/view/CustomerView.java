@@ -1,6 +1,8 @@
 package com.sysoiev.app.view;
 
+import com.sysoiev.app.controller.AccountController;
 import com.sysoiev.app.controller.CustomerController;
+import com.sysoiev.app.controller.SpecialtyController;
 import com.sysoiev.app.model.Account;
 import com.sysoiev.app.model.Customer;
 import com.sysoiev.app.model.Specialty;
@@ -12,6 +14,8 @@ import java.util.Set;
 public class CustomerView {
     private Scanner scanner = new Scanner(System.in);
     private CustomerController customerController = new CustomerController();
+    private AccountController accountController=new AccountController();
+    private SpecialtyController specialtyController=new SpecialtyController();
 
 
     public void printCustomers() {
@@ -47,24 +51,24 @@ public class CustomerView {
         String surname = scanner.next();
         System.out.println("Enter id of account :");
         Long idAccount = Long.parseLong(scanner.next());
-        Account account = new Account(idAccount);
+        Account account = accountController.getValueByIndex(idAccount);
         Set<Specialty> specialtySet = new HashSet<>();
         /*System.out.println("Enter id of customer in order to link specialty :");
         Long idCustomer = Long.parseLong(scanner.next());*/
         System.out.println("Enter id of specialty :");
         Long idSpecialty = Long.parseLong(scanner.next());
-        specialtySet.add(new Specialty(idSpecialty));
+        specialtySet.add(specialtyController.getValueByIndex(idSpecialty));
         boolean go = true;
         while (go) {
             System.out.println("Do You want to add one more id of specialty? 1.Yes 2.No");
             String yesOrNo = scanner.next();
             switch (yesOrNo) {
                 case ("1"):
-                    System.out.println("Enter id of customer in order to link specialty :");
-                    Long newIdCustomer = Long.parseLong(scanner.next());
+                   /* System.out.println("Enter id of customer in order to link specialty :");
+                    Long newIdCustomer = Long.parseLong(scanner.next());*/
                     System.out.println("Enter id of new specialty :");
                     Long newIdSpecialty = Long.parseLong(scanner.next());
-                    specialtySet.add(new Specialty(newIdSpecialty));
+                    specialtySet.add(specialtyController.getValueByIndex(newIdSpecialty));
                     break;
                 case ("2"):
                     System.out.println("You choose do not add new specialty");
@@ -80,11 +84,45 @@ public class CustomerView {
     public void updateCustomer() {
         System.out.println("Enter id in order to find element :");
         Long id = Long.parseLong(scanner.next());
-        System.out.println("Enter name :");
+       /* System.out.println("Enter name :");
         String name = scanner.next();
         System.out.println("Enter surname :");
         String surname = scanner.next();
         Customer newCustomer = new Customer(id, name, surname);
+        customerController.updateCustomer(newCustomer);*/
+
+        System.out.println("Enter name :");
+        String name = scanner.next();
+        System.out.println("Enter surname :");
+        String surname = scanner.next();
+        System.out.println("Enter id of account :");
+        Long idAccount = Long.parseLong(scanner.next());
+        Account account = accountController.getValueByIndex(idAccount);
+        Set<Specialty> specialtySet = new HashSet<>();
+        /*System.out.println("Enter id of customer in order to link specialty :");
+        Long idCustomer = Long.parseLong(scanner.next());*/
+        System.out.println("Enter id of specialty :");
+        Long idSpecialty = Long.parseLong(scanner.next());
+        specialtySet.add(specialtyController.getValueByIndex(idSpecialty));
+        boolean go = true;
+        while (go) {
+            System.out.println("Do You want to add one more id of specialty? 1.Yes 2.No");
+            String yesOrNo = scanner.next();
+            switch (yesOrNo) {
+                case ("1"):
+                   /* System.out.println("Enter id of customer in order to link specialty :");
+                    Long newIdCustomer = Long.parseLong(scanner.next());*/
+                    System.out.println("Enter id of new specialty :");
+                    Long newIdSpecialty = Long.parseLong(scanner.next());
+                    specialtySet.add(specialtyController.getValueByIndex(newIdSpecialty));
+                    break;
+                case ("2"):
+                    System.out.println("You choose do not add new specialty");
+                    go = false;
+                    break;
+            }
+        }
+        Customer newCustomer = new Customer(id,name, surname, account, specialtySet);
         customerController.updateCustomer(newCustomer);
     }
 
