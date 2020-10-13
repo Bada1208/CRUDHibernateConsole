@@ -2,5 +2,5 @@ language: java
 services:
   - mysql
 before_install:
-  - mysql -e 'CREATE DATABASE IF NOT EXISTS hibernate_crud;'
-  - mysql -e "CREATE USER 'root' WITH PASSWORD 'root';"
+  - mysql  -u root -e 'CREATE DATABASE IF NOT EXISTS hibernate_crud;'
+  - mysql  -u root -e "CREATE USER 'root'@'localhost' WITH PASSWORD 'root';"
