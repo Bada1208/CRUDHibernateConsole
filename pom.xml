@@ -33,18 +33,19 @@
                 <version>3.6.1</version>
                 <configuration>
                     <propertyFile>src/main/resources/liquibase/liquibase.properties</propertyFile>
+                    <promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
                     <outputChangeLogFile>
                         ${basedir}/src/main/resources/liquibase/db-changelog-master.yaml
                     </outputChangeLogFile>
                 </configuration>
-                <executions>
+                <!--<executions>
                     <execution>
                         <phase>process-resources</phase>
                         <goals>
                             <goal>update</goal>
                         </goals>
                     </execution>
-                </executions>
+                </executions>-->
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
