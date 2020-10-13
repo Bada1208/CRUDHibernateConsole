@@ -13,7 +13,7 @@ create table if not exists customer_specialties
     foreign key (specialty_id) references specialties (id)
 
 );
-create table accounts
+create table if not exists accounts
 (
     id             bigint primary key AUTO_INCREMENT,
     account_status enum ('ACTIVE', 'BANNED', 'DELETED') DEFAULT 'ACTIVE'

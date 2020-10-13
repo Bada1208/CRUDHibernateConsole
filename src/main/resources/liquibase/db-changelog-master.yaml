@@ -1,6 +1,6 @@
 databaseChangeLog:
 - changeSet:
-    id: 1602494259162-1
+    id: 1602574654741-1
     author: Admin (generated)
     changes:
     - createTable:
@@ -17,7 +17,7 @@ databaseChangeLog:
             type: ENUM('ACTIVE', 'BANNED', 'DELETED')
         tableName: accounts
 - changeSet:
-    id: 1602494259162-2
+    id: 1602574654741-2
     author: Admin (generated)
     changes:
     - createTable:
@@ -34,7 +34,7 @@ databaseChangeLog:
             type: BIGINT
         tableName: customer_specialties
 - changeSet:
-    id: 1602494259162-3
+    id: 1602574654741-3
     author: Admin (generated)
     changes:
     - createTable:
@@ -59,25 +59,7 @@ databaseChangeLog:
             type: BIGINT
         tableName: customers
 - changeSet:
-    id: 1602494259162-4
-    author: Admin (generated)
-    changes:
-    - createTable:
-        columns:
-        - column:
-            constraints:
-              primaryKey: true
-            name: Customer_id
-            type: BIGINT
-        - column:
-            constraints:
-              primaryKey: true
-              unique: true
-            name: customerSpecialties_id
-            type: BIGINT
-        tableName: customers_specialties
-- changeSet:
-    id: 1602494259162-5
+    id: 1602574654741-4
     author: Admin (generated)
     changes:
     - createTable:
@@ -93,7 +75,7 @@ databaseChangeLog:
             type: VARCHAR(100)
         tableName: specialties
 - changeSet:
-    id: 1602494259162-6
+    id: 1602574654741-5
     author: Admin (generated)
     changes:
     - addUniqueConstraint:
@@ -101,17 +83,17 @@ databaseChangeLog:
         constraintName: customer_id
         tableName: customer_specialties
 - changeSet:
-    id: 1602494259162-7
+    id: 1602574654741-6
     author: Admin (generated)
     changes:
     - createIndex:
         columns:
         - column:
             name: account_id
-        indexName: FKor0fx9fttvasr4grtaqnltyrl
+        indexName: account_id
         tableName: customers
 - changeSet:
-    id: 1602494259162-8
+    id: 1602574654741-7
     author: Admin (generated)
     changes:
     - createIndex:
@@ -121,7 +103,7 @@ databaseChangeLog:
         indexName: specialty_id
         tableName: customer_specialties
 - changeSet:
-    id: 1602494259162-9
+    id: 1602574654741-8
     author: Admin (generated)
     changes:
     - createIndex:
@@ -131,52 +113,7 @@ databaseChangeLog:
         indexName: specialty_id
         tableName: customers
 - changeSet:
-    id: 1602494259162-10
-    author: Admin (generated)
-    changes:
-    - addForeignKeyConstraint:
-        baseColumnNames: customerSpecialties_id
-        baseTableName: customers_specialties
-        constraintName: FKd8dhs1x0coeba7sfbowdg91oo
-        deferrable: false
-        initiallyDeferred: false
-        onDelete: RESTRICT
-        onUpdate: RESTRICT
-        referencedColumnNames: id
-        referencedTableName: specialties
-        validate: true
-- changeSet:
-    id: 1602494259162-11
-    author: Admin (generated)
-    changes:
-    - addForeignKeyConstraint:
-        baseColumnNames: account_id
-        baseTableName: customers
-        constraintName: FKor0fx9fttvasr4grtaqnltyrl
-        deferrable: false
-        initiallyDeferred: false
-        onDelete: RESTRICT
-        onUpdate: RESTRICT
-        referencedColumnNames: id
-        referencedTableName: accounts
-        validate: true
-- changeSet:
-    id: 1602494259162-12
-    author: Admin (generated)
-    changes:
-    - addForeignKeyConstraint:
-        baseColumnNames: Customer_id
-        baseTableName: customers_specialties
-        constraintName: FKpft1v7aqvdiu9bq4t4v1086ex
-        deferrable: false
-        initiallyDeferred: false
-        onDelete: RESTRICT
-        onUpdate: RESTRICT
-        referencedColumnNames: id
-        referencedTableName: customers
-        validate: true
-- changeSet:
-    id: 1602494259162-13
+    id: 1602574654741-9
     author: Admin (generated)
     changes:
     - addForeignKeyConstraint:
@@ -191,7 +128,7 @@ databaseChangeLog:
         referencedTableName: customers
         validate: true
 - changeSet:
-    id: 1602494259162-14
+    id: 1602574654741-10
     author: Admin (generated)
     changes:
     - addForeignKeyConstraint:
@@ -206,7 +143,7 @@ databaseChangeLog:
         referencedTableName: specialties
         validate: true
 - changeSet:
-    id: 1602494259162-15
+    id: 1602574654741-11
     author: Admin (generated)
     changes:
     - addForeignKeyConstraint:
@@ -219,5 +156,20 @@ databaseChangeLog:
         onUpdate: RESTRICT
         referencedColumnNames: id
         referencedTableName: specialties
+        validate: true
+- changeSet:
+    id: 1602574654741-12
+    author: Admin (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: account_id
+        baseTableName: customers
+        constraintName: customers_ibfk_2
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: RESTRICT
+        onUpdate: RESTRICT
+        referencedColumnNames: id
+        referencedTableName: accounts
         validate: true
 
