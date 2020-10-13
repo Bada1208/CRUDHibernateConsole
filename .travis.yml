@@ -3,4 +3,4 @@ services:
   - mysql
 before_install:
   - mysql  -u root -e 'CREATE DATABASE IF NOT EXISTS hibernate_crud;'
-  - mysql  -u root -e "UPDATE user SET authentication_string=password('root') WHERE user='root';"
+  - mysql  -u root -p "UPDATE user SET authentication_string=password('root') WHERE user='root';"
