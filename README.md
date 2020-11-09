@@ -1,4 +1,7 @@
 # CRUDHibernateConsole
+https://travis-ci.com/Bada1208/CRUDHibernateConsole.svg?branch=master
+
+
 Необходимо реализовать консольное CRUD приложение, которое взаимодействует с БД и позволяет выполнять все CRUD операции над сущностями:
 Customer
 Specialty
